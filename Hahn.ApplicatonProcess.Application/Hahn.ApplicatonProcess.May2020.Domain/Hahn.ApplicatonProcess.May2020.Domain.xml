@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicatonProcess.May2020.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.CountryService">
+            <summary>
+            Class used to retrieve a valid list of countries
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.CountryService.#ctor(System.Net.Http.HttpClient)">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="client">http client used to pull countries</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.CountryService.SearchCountryByNameAsync(System.String)">
+            <summary>
+            Returns an object with the country information if found
+            </summary>
+            <param name="name">Name of the country</param>
+            <returns>CountryModel</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant">
+            <summary>
+            This class describes the properties of an applicant of a hiring process
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.Id">
+            <summary>
+            Unique Id of the applicant
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.Name">
+            <summary>
+            Applicant's name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.FamilyName">
+            <summary>
+            Applicant's family name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.Address">
+            <summary>
+            Full address
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.CountryOfOrigin">
+            <summary>
+            The country where the applicant is from
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.EmailAddress">
+            <summary>
+            The applicant's email address. Must be a valid email.
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.Age">
+            <summary>
+            Applicant's age
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.Hired">
+            <summary>
+            True if the applicant is hired. False otherwise.
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.#ctor">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.#ctor(Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel)">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="model">Object containing input data</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.GetViewModel(System.String)">
+            <summary>
+            Returns the ApplicantViewModel object for this instance.
+            </summary>
+            <param name="baseEndpointUrl">The base endpoint url.</param>
+            <returns>ApplicantViewModel</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant.UpdateFromModel(Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel)">
+            <summary>
+            Updates the current instance using the given model.
+            </summary>
+            <param name="model">Object with the applicant input data</param>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IAggregateRoot">
+            <summary>
+            This interface is used to mark an entity as an aggregation root.
+            </summary>
+            <remarks>
+            For instance:
+            
+            Order
+            OrderItems
+            
+            The second one can not exist without the first class.
+            Therefore, Order is the aggregate root and only aggregate roots can be used inside a repository.
+            </remarks>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IApplicantRepository">
+            <summary>
+            Repository definition for the Applicant entity
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IApplicantRepository.BaseEndpointUrl">
+            <summary>
+            Base url for the API endpoint
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IApplicantRepository.ListByNameAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns a list of applicants
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>IReadOnlyList</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IEntity">
+            <summary>
+            Interface that represents an Entity
+            </summary>
+            <remarks>
+            This interface is used in this app to mark classes as entities only.
+            For brevity, is has no code. My real interface is commented out inside the interface.
+            </remarks>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IReadRepository`1">
+            <summary>
+            Interface that defines read operations for the repository pattern
+            </summary>
+            <typeparam name="T">An entity to use in the repository</typeparam>
+            <remarks>
+            NOTE: I left out some other definitions for the sake of simplification.
+            </remarks>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IReadRepository`1.GetSingleByIdAsync(System.Object,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Returns a single entity
+            </summary>
+            <param name="id">The id to find the entity</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <param name="trackChanges">Optional indicading to track changes</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IReadRepository`1.ListAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Returns a list of records
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <param name="trackChanges">Optional indicading to track changes</param>
+            <returns>A list of IReadOnlyList for the entity</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IRepository`1">
+            <summary>
+            Interface to implement the repository pattern
+            </summary>
+            <typeparam name="T">An entity to use in the repository</typeparam>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IWriteRepository`1">
+            <summary>
+            Interface that defines methods to write to an entity using the repository pattern
+            </summary>
+            <typeparam name="T">An entity to use in the repository</typeparam>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IWriteRepository`1.Add(`0)">
+            <summary>
+            Adds a new entity to the repository.
+            </summary>
+            <param name="entity">Entity</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IWriteRepository`1.Delete(`0)">
+            <summary>
+            Marks the given entity to be deleted
+            </summary>
+            <param name="entity">Entity</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IWriteRepository`1.SaveUnitOfWorkAsync(System.Threading.CancellationToken)">
+            <summary>
+            Persists the changes to the database.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Number of lines affected</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel">
+            <summary>
+            Model used in data entry operations
+            </summary>
+            <remarks>
+            In a real world scenario, this approach separates the underlining table definition,
+            in this case the Applicant table in the database, from the input.
+            This way, it is possible to evolve both separately.
+            </remarks>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.Name">
+            <summary>
+            Applicant's name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.FamilyName">
+            <summary>
+            Applicant's family name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.Address">
+            <summary>
+            Full address
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.CountryOfOrigin">
+            <summary>
+            The country where the applicant is from
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.EmailAddress">
+            <summary>
+            The applicant's email address. Must be a valid email.
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.Age">
+            <summary>
+            Applicant's age. Must be between 20 and 60.
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel.Hired">
+            <summary>
+            True if the applicant is hired. False otherwise.
+            </summary>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator">
+            <summary>
+            Validator for Applicant
+            </summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.NameMaxLength">
+            <summary>Max length for name</summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.FamilyNameMaxLength">
+            <summary>Max length for family name</summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.AddressMaxLength">
+            <summary>Max length for address</summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.CountryMaxLength">
+            <summary>Max length for country</summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.EmailMaxLength">
+            <summary>Max length for email</summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantValidator.#ctor(Hahn.ApplicatonProcess.May2020.Domain.CountryService)">
+            <summary>
+            Creates a new instance of the object.
+            </summary>
+            <param name="countryService">Service used to validate a country</param>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel">
+            <summary>
+            Model used the present applicant data
+            </summary>
+            <remarks>
+            In a real world scenario, this approach separates the underlining table definition,
+            in this case the Applicant table in the database, from the resulting view.
+            This way, it is possible to evolve both separately without impact.
+            </remarks>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Id">
+            <summary>
+            Unique Id of the applicant
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Name">
+            <summary>
+            Applicant's name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.FamilyName">
+            <summary>
+            Applicant's family name
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Address">
+            <summary>
+            Full address
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.CountryOfOrigin">
+            <summary>
+            The country where the applicant is from
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.EmailAddress">
+            <summary>
+            The applicant's email address. Must be a valid email.
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Age">
+            <summary>
+            Applicant's age
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Hired">
+            <summary>
+            True if the applicant is hired. False otherwise.
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantViewModel.Links">
+            <summary>
+            List of actions related to the object
+            </summary>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Models.CountryModel">
+            <summary>
+            Represents a country
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.CountryModel.Name">
+            <summary>
+            Contains the name of the country
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.CountryModel.Alpha3Code">
+            <summary>
+            The unique code of the country
+            </summary>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Domain.Models.RestLink">
+            <summary>
+            This class represents a HATEOAS link to be used with the RestEntityModel
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.RestLink.Rel">
+            <summary>
+            The type of relationship for the link. Default = self
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.RestLink.Href">
+            <summary>
+            The url to access the rest endpoint
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.RestLink.Action">
+            <summary>
+            The http method used to call the endpoint
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Domain.Models.RestLink.Types">
+            <summary>
+            The list of types accepted by the endpoint.
+            i.e. application/json
+            </summary>
+        </member>
+    </members>
+</doc>

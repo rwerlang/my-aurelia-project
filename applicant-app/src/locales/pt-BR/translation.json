@@ -1,0 +1,20 @@
+{
+    "appTitle": "Applicant app",
+    "addApplicant": "Incluir candidato",
+
+    "name": "Nome",
+    "familyName": "Sobrenome",
+    "address": "Endereço",
+    "countryOforigin": "País de origem",
+    "email": "E-mail",
+    "age": "Idade",
+    "hired": "Contratado",
+    "add": "Adicionar",
+    "reset": "Resetar",
+    "yes": "Sim",
+    "no": "Não",
+    "resetQuestion": "Você tem certeza que deseja limpar o formulário?",
+    "error": "Erro",
+    "errorDescription": "Verifique a lista a seguir, faça as correções e tente novamente.",
+    "successDescription": "O registro foi salvo com sucesso"
+}

@@ -1,0 +1,16 @@
+<template>
+    <ux-dialog>
+        <ux-dialog-body>
+            <h5 i18n="error">Error</h5>
+            <br/>
+            <p i18n="errorDescription">Please check the following list, resolve each one of them and then try again.</p>
+            <ul>
+                <li repeat.for="error of model.errors">${error.errorMessage}</li>
+            </ul>
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            <button click.trigger="controller.ok(model)">Ok</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

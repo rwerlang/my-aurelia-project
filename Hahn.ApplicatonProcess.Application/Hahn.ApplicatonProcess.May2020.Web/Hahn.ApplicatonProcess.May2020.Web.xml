@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicatonProcess.May2020.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController">
+            <summary>
+            API with actions to interact with applicant's data
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.#ctor(Hahn.ApplicatonProcess.May2020.Domain.Interfaces.IApplicantRepository,Hahn.ApplicatonProcess.May2020.Domain.CountryService,Microsoft.Extensions.Logging.ILogger{Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController})">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="repo">The repository for Applicant</param>
+            <param name="countryService">Service to retrieve a country</param>
+            <param name="logger">Loggin object</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.CreateAsync(Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel)">
+            <summary>
+            Registers a new applicant in the database
+            </summary>
+            <returns>IActionResult</returns>
+            <response code="201">Returns the newly created item.</response>
+            <example>{'application/json': { 'name': 'John', 'familyName': Doe }}</example>
+            <response code="400">Returns the corresponding error information.</response>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.GetAsync(System.Int32)">
+            <summary>
+            Returns an applicant data for the given id
+            </summary>
+            <param name="id">The id that identifies the applicant</param>
+            <returns>IActionResult</returns>
+            <response code="200">The object for the given id.</response>
+            <response code="404">Object not found for id.</response>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.ListAsync">
+            <summary>
+            Returns the list of applicants
+            </summary>
+            <returns>List of RestEntityModel with applicants</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.PutAsync(System.Int32,Hahn.ApplicatonProcess.May2020.Domain.Models.ApplicantInputModel)">
+            <summary>
+            Updates an applicant's data for the given id
+            </summary>
+            <param name="id">The id that identifies the applicant</param>
+            <param name="input">Object with the data to be changed.</param>
+            <returns>IActionResult</returns>
+            <response code="200">The updated object for the given id.</response>
+            <response code="400">Returns the corresponding error information.</response>
+            <response code="404">Object not found for id.</response>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Controllers.ApplicantsController.Delete(System.Int32)">
+            <summary>
+            Deletes the applicant record from the database
+            </summary>
+            <param name="id">The id that identifies the applicant</param>
+            <returns>IActionResult</returns>
+            <response code="200">Success if the record was deleted.</response>
+            <response code="404">Object not found for id.</response>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Web.Program">
+            <summary>
+            Application entry point class
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Program.Main(System.String[])">
+            <summary>
+            Main entry point
+            </summary>
+            <param name="args">Command line arguments</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the web host
+            </summary>
+            <param name="args">Command line arguments</param>
+            <returns>IHostBuilder</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Web.Startup">
+            <summary>
+            The startup class
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Create an instance of the object
+            </summary>
+            <param name="configuration">Configuration object</param>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Web.Startup.Configuration">
+            <summary>
+            Contains configuration data
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container. 
+            </summary>
+            <param name="services">Collection of services</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline. 
+            </summary>
+            <param name="app">App builder object</param>
+            <param name="env">Hosting environment</param>
+        </member>
+    </members>
+</doc>

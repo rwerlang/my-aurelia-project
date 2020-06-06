@@ -1,0 +1,20 @@
+{
+    "appTitle": "Applicant app",
+    "addApplicant": "Add applicant",
+    
+    "name": "Name",
+    "familyName": "Family name",
+    "address": "Address",
+    "countryOforigin": "Country of origin",
+    "email": "E-mail",
+    "age": "Age",
+    "hired": "Hired",
+    "add": "Add",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "resetQuestion": "Are you sure you want to reset the form?",
+    "error": "Error",
+    "errorDescription": "Check the following list, resolve each one of them and then try again.",
+    "successDescription": "The record was successfullly saved"
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicatonProcess.May2020.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Data.ApplicantRepository">
+            <summary>
+            Repository for the Applicant entity
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Data.ApplicantRepository.BaseEndpointUrl">
+            <summary>
+            Base url for the API endpoint
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.ApplicantRepository.#ctor(Hahn.ApplicatonProcess.May2020.Data.DatabaseContext)">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="context">Database context</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.ApplicantRepository.ListByNameAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns a list of applicants ordered by first name
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>IReadOnlyList</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2">
+            <summary>
+            Base EntityFramework class for the Repository pattern
+            </summary>
+        </member>
+        <member name="F:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2._context">
+            <summary>
+            Database context
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.#ctor(`0)">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="context">Database context</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.GetSingleByIdAsync(System.Object,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Returns a single entity
+            </summary>
+            <param name="id">The id to find the entity</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <param name="trackChanges">Optional indicading to track changes</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.ListAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Returns a list of records
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <param name="trackChanges">Optional indicading to track changes</param>
+            <returns>A list of IReadOnlyList for the entity</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.Add(`1)">
+            <summary>
+            Adds a new entity to the repository.
+            </summary>
+            <param name="entity">Entity</param>
+            <returns>An instance of T</returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.Delete(`1)">
+            <summary>
+            Marks the given entity to be deleted
+            </summary>
+            <param name="entity">Entity</param>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.BaseEfRepository`2.SaveUnitOfWorkAsync(System.Threading.CancellationToken)">
+            <summary>
+            Persists the changes to the database.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Number of lines affected</returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Data.DatabaseContext">
+            <summary>
+            Database context for the applicant app
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicatonProcess.May2020.Data.DatabaseContext.Applicants">
+            <summary>
+            Represents the Applicant entity in the database
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.DatabaseContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Hahn.ApplicatonProcess.May2020.Data.DatabaseContext})">
+            <summary>
+            Creates a new instance of the object
+            </summary>
+            <param name="options">Configuration options for the context</param>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.May2020.Data.Metadata.ApplicantEntityBuilder">
+            <summary>
+            Class to build metadata attributes for the Applicant entity
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.May2020.Data.Metadata.ApplicantEntityBuilder.Build(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Hahn.ApplicatonProcess.May2020.Domain.Entities.Applicant})">
+            <summary>
+            Builds the metadata for the entity
+            </summary>
+            <param name="entity">Database entity</param>
+        </member>
+    </members>
+</doc>
